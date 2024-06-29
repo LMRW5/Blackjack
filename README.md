@@ -1,2 +1,0 @@
-# Blackjack
-Blackjack website/game
