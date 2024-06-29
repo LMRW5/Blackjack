@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>
+        BLACKJ@CK.COM
+    </h1>
+    <h3>
+        <p>
+            <b> WELCOME {{ user }} </b>
+        </p>
+    </h3>
+    <img src= "/static/dealer.png">
+    <p>
+
+    </p>
+    <form action="/play" method="post">
+        <button class="btn btn-primary" type="submit">Play</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Blackjack Game
+{% endblock %}
+
+{% block main %}
+    <div class="blackjack-container">
+        <h1 class="text-center">Blackjack</h1>
+
+        <div class="hand-container">
+            <div class="player-hand">
+                <h2>Player's Hand: {{ player_value }}</h2>
+                <ul class="card-list">
+                    {% for card in player_hand %}
+                    <li class="card">{{ card }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="dealer-hand">
+                <h2>Dealer's Hand: {{ dealer_value }}</h2>
+                <ul class="card-list">
+                    {% for card in dealer_hand %}
+                    <li class="card">{{ card }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="bet-info">
+            <h3>Current Bet: {{ session['buyin_amount'] }}</h3>
+        </div>
+
+        <div class="action-buttons">
+            <form action="{{ url_for('hit') }}" method="post">
+                <button type="submit" class="btn btn-primary btn-lg">Hit</button>
+            </form>
+            <form action="{{ url_for('stand') }}" method="post">
+                <button type="submit" class="btn btn-secondary btn-lg">Stand</button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .blackjack-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .blackjack-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .hand-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .player-hand, .dealer-hand {
+            width: 45%;
+        }
+
+        .card-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card-list .card {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+
+        .bet-info {
+            margin-bottom: 20px;
+        }
+
+        .action-buttons form {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .action-buttons .btn-lg {
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+    </style>
+{% endblock %}

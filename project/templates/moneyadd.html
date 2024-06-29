@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Money
+{% endblock %}
+
+{% block main %}
+    <div class="add-money-container">
+        <h1 class="text-center">Add Money</h1>
+
+        <div class="cash-info">
+            <h3>Current Cash: {{ cash }}</h3>
+        </div>
+
+        <form action="/add-money" method="post" class="add-money-form">
+            <div class="form-group mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="Cash-Added" placeholder="Enter amount to add" type="number" min="1" required>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Add Cash</button>
+        </form>
+    </div>
+
+    <style>
+        .add-money-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .add-money-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .cash-info {
+            margin-bottom: 20px;
+        }
+
+        .add-money-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group .form-control {
+            text-align: center;
+        }
+
+        .btn-lg {
+            padding: 10px 20px;
+            font-size: 1.2em;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy-in
+{% endblock %}
+
+{% block main %}
+    <div class="buyin-container">
+        <h1 class="text-center">Buy-in</h1>
+        <form action="/buyin" method="post" class="buyin-form">
+            <div class="form-group">
+                <label for="buyin_amount">Enter Buy-in Amount:</label>
+                <input type="number" class="form-control" id="buyin_amount" name="buyin_amount" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        <p class="current-cash">Your current cash: {{ cash }}</p>
+    </div>
+
+    <style>
+        .buyin-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .buyin-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .buyin-form {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .current-cash {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+{% endblock %}

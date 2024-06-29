@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+    <h1>
+        {{ result }}
+    </h1>
+    <h3>
+        <p>
+            Current Cash: {{ cash }}
+        </p>
+    </h3>
+
+    <form action="/play" method="post">
+
+        <button class="btn btn-primary" type="submit">Play Again</button>
+    </form>
+
+{% endblock %}
